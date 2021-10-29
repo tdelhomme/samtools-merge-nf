@@ -68,7 +68,7 @@ process merge {
     publishDir "${params.output_folder}", mode: 'copy' 
 
     input:
-    set val(SM), file(outfile), file(bam1), file(bam2) from files_to_merge
+    set val(SM), val(outfile), file(bam1), file(bam2) from files_to_merge
 
 
     output:
@@ -76,7 +76,7 @@ process merge {
     
     shell:
     '''
-    samtools merge !{outfile} ${bam1} ${bam2}
+    samtools merge !{outfile} !{bam1} !{bam2}
     '''
 
 }
