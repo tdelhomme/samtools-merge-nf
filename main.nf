@@ -58,7 +58,7 @@ assert (params.input_file != true) && (params.input_file != null) : "please spec
 
 files_to_merge = Channel.fromPath("${params.input_file}")
                         .splitCsv()
-			                  .map { row -> tuple(row[0], row[1], params.input_folder + "/" + row[2], params.input_folder + "/" + row[3]) }
+			                  .map { row -> tuple(row[0], row[1], file(params.input_folder + "/" + row[2]), file(params.input_folder + "/" + row[3]) )}
 
 process merge {
 
