@@ -26,7 +26,7 @@ params.output_folder = "BAM_merged"
 
 log.info ""
 log.info "--------------------------------------------------------"
-log.info "  vcf_normalization-nf 1.1.0: Nextflow pipeline for vcf normalization    "
+log.info " samtools-merge-nf: nextflow pipeline for merging BAM files "
 log.info "--------------------------------------------------------"
 log.info "Copyright (C) IARC/WHO"
 log.info "This program comes with ABSOLUTELY NO WARRANTY; for details see LICENSE"
@@ -72,7 +72,7 @@ process merge {
 
 
     output:
-    file("*sm_merged.bam*") into bam_merged
+    file("*sm_merged*.bam") into bam_merged
     
     shell:
     '''
